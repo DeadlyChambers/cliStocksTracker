@@ -6,7 +6,6 @@ export cyan="\033[0;36m"
 export normal="\033[0m"
 
 update-bash() {
-{
 vers="v1.00"
 echo -e "${cyan}-------------------------------"
 echo -e "-${vers}  Bashrc Version    @SO -"
