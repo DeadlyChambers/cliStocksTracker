@@ -5,6 +5,7 @@ export magenta="\033[0;35m"
 export cyan="\033[0;36m"
 export normal="\033[0m"
 export vers="v1.00"
+export HOME2=~/../usr
 
 update-bash() {
     
@@ -14,7 +15,7 @@ update-bash() {
     echo -e "${yellow} Update bash scripts with  cp setup.sh ~/ubuntu-binds -fv"
     cur=$PWD
     cd ~/repos/cliStocksTracker;
-    cp setup.sh ~/ubuntu-binds -fv;
+    cp setup.sh $HOME2/etc/profile.d -fv;
     cd $PWD
 }
 update-bash
