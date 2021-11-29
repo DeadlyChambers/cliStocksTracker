@@ -11,7 +11,16 @@ import yfinance as market
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 
-
+import pip
+def import_or_install(package):
+    try:
+        c = __import__(package)
+        c.init()
+    except ImportError:
+        pip.main(['install', package])
+        import colorama
+        colorama.init()
+import_or_install('colorama')
 @dataclass
 class Stock:
     symbol: str

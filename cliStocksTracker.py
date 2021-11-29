@@ -14,7 +14,17 @@ import portfolio as port
 
 from datetime import datetime, timedelta
 from renderer import Renderer
+import pip
 
+def import_or_install(package):
+    try:
+        c = __import__(package)
+        c.init()
+    except ImportError:
+        pip.main(['install', package])
+        import colorama
+        colorama.init()
+import_or_install('colorama')
 
 def merge_config(config, args):
     if "General" in config:

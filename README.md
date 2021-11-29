@@ -22,15 +22,30 @@ Requirements:
   * colorama >= 0.4.4
   * webcolors==1.11.1
   * matplotlib>=3.3.4
-  
-### Manual
+
+### Move to bashrc location
 ```
-$ git clone https://github.com/ConradSelig/cliStocksTracker
-$ cd cliStocksTracker
-$ python3 -m pip install -r requirements.txt
+cp ./stocks.sh ~/etc/profile.d -fv
+```
+
+### Manual Setup
+```
+cd ~/usr/repos/cliStocksTracker
+python -m venv ~/.venv/cli-stock
+source ~/.venv/cli-stock/Scripts/activate
+python -m pip install -r requirements.txt
 ```
 
 ## Usage
+```
+source ~/.venv/cli-stock/Scripts/activate
+python cliStocksTracker.py -ti 1h -tp 1mo
+python cliStocksTracker.py
+
+deactivate
+```
+
+
 ```
 usage: cliStocksTracker.py [-h] [--width WIDTH] [--height HEIGHT]
                            [--independent-graphs] [--timezone TIMEZONE]
@@ -49,9 +64,9 @@ optional arguments:
   -r ROUNDING_MODE, --rounding-mode ROUNDING_MODE
                         how should numbers be rounded (math | down)
   -ti TIME_INTERVAL, --time-interval TIME_INTERVAL
-                        specify time interval for graphs (ex: 1m, 15m, 1h)
+                        specify time interval for graphs (ex: 1m, 15m, 1h, 1d, 5d, 1wk, 1mo, 3mo)
   -tp TIME_PERIOD, --time-period TIME_PERIOD
-                        specify time period for graphs (ex: 15m, 1h, 1d)
+                        specify time period for graphs (ex: 15m, 1h, 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max)
   --config CONFIG       path to a config.ini file
   --portfolio-config PORTFOLIO_CONFIG
                         path to a portfolio.ini file with your list of stonks
