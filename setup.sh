@@ -5,7 +5,7 @@ export magenta="\033[0;35m"
 export cyan="\033[0;36m"
 export normal="\033[0m"
 export vers="v1.00"
-export HOME2="~/../usr"
+export HOME2=~/../usr
 
 update-bash() {
     echo -e "${cyan}-------------------------------"
