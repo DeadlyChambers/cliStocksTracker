@@ -64,3 +64,4 @@ stocks () {
 export -f update-bash
 export -f stocks-update
 export -f stocks
+update-bash
