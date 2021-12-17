@@ -61,3 +61,4 @@ stocks () {
 export -f update-bash
 export -f stocks-update
 export -f stocks
+declare -Fx | awk -vORS=', ' {'print $3'};
