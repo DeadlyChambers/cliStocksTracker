@@ -14,7 +14,7 @@ update-bash() {
     echo -e "${yellow} Update bash scripts with  cp setup.sh ~/ubuntu-binds -fv"
     local cur=$PWD
     cd ~/repos/cliStocksTracker;
-    cp setup.sh $HOME2/etc/profile.d -fv;
+    cp setup.sh $HOME2/etc/profile.d/setup.sh -fv;
     cd cur
 }
 update-bash
