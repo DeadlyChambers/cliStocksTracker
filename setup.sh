@@ -15,9 +15,11 @@ update-bash() {
     local cur=$PWD
     cd ~/repos/cliStocksTracker;
     cp setup.sh $HOME2/etc/profile.d/setup.sh -fv;
+    funcs=$(declare -Fx | awk -vORS=', ' {'print $3'});
+    echo -e "${cyan}${funcs}${normal}"
     cd $cur
 }
-update-bash
+
 stocks-update() {
     echo -e "${cyan}-------------------------------"
     echo -e "                STOCKS       @SO -"
@@ -25,9 +27,10 @@ stocks-update() {
     echo -e "${yellow}Edit the ~/repos/cliStocksTracker/portfolio.ini to add/remove stocks${normal}";
     local cur=$PWD
     cd ~/repos/cliStocksTracker;
+    git reset --hard;
     git pull;
+    cp setup.sh $HOME2/etc/profile.d/setup.sh -fv;
     cd $cur
-
 }
 stocks () {
     echo -e "${cyan}-------------------------------"
@@ -61,4 +64,3 @@ stocks () {
 export -f update-bash
 export -f stocks-update
 export -f stocks
-declare -Fx | awk -vORS=', ' {'print $3'};
