@@ -5,18 +5,17 @@ export magenta="\033[0;35m"
 export cyan="\033[0;36m"
 export normal="\033[0m"
 export vers="v1.00"
-export HOME2=~/../usr
+export HOME2="~/../usr"
 
 update-bash() {
-    
     echo -e "${cyan}-------------------------------"
     echo -e "-${vers}  Bashrc Version    @SO -"
     echo -e "${cyan}-------------------------------"
     echo -e "${yellow} Update bash scripts with  cp setup.sh ~/ubuntu-binds -fv"
-    cur=$PWD
+    local cur=$PWD
     cd ~/repos/cliStocksTracker;
     cp setup.sh $HOME2/etc/profile.d -fv;
-    cd $PWD
+    cd cur
 }
 update-bash
 stocks-update() {
@@ -24,10 +23,10 @@ stocks-update() {
     echo -e "                STOCKS       @SO -"
     echo -e "${cyan}-------------------------------"
     echo -e "${yellow}Edit the ~/repos/cliStocksTracker/portfolio.ini to add/remove stocks${normal}";
-    cur=$PWD
+    local cur=$PWD
     cd ~/repos/cliStocksTracker;
     git pull;
-    cd $PWD
+    cd $cur
 
 }
 stocks () {
