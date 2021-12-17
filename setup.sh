@@ -19,7 +19,17 @@ update-bash() {
     cd $PWD
 }
 update-bash
+stocks-update() {
+    echo -e "${cyan}-------------------------------"
+    echo -e "                STOCKS       @SO -"
+    echo -e "${cyan}-------------------------------"
+    echo -e "${yellow}Edit the ~/repos/cliStocksTracker/portfolio.ini to add/remove stocks${normal}";
+    cur=$PWD
+    cd ~/repos/cliStocksTracker;
+    git pull;
+    cd $PWD
 
+}
 stocks () {
     echo -e "${cyan}-------------------------------"
     echo -e "                STOCKS       @SO -"
@@ -45,4 +55,6 @@ stocks () {
     deactivate
     cd $cur
 }
+export -f update-bash
+export -f stocks-update
 export -f stocks
