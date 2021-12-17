@@ -15,7 +15,7 @@ update-bash() {
     local cur=$PWD
     cd ~/repos/cliStocksTracker;
     cp setup.sh $HOME2/etc/profile.d/setup.sh -fv;
-    cd cur
+    cd $cur
 }
 update-bash
 stocks-update() {
@@ -34,7 +34,7 @@ stocks () {
     echo -e "                STOCKS       @SO -"
     echo -e "${cyan}-------------------------------"
     echo -e "${yellow}Edit the ~/repos/cliStocksTracker/portfolio.ini to add/remove stocks${normal}";
-    cur=$PWD
+    local cur=$PWD
     cd ~/repos/cliStocksTracker
     if [ ! -d ~/.venv/cli-stock ]
         then
