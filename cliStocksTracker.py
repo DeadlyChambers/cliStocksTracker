@@ -1,8 +1,9 @@
+from datetime import datetime, timedelta
+import argparse
+import warnings
 import pytz
 import utils
 import plotille
-import warnings
-import argparse
 import webcolors
 import autocolors
 import contextlib
@@ -12,7 +13,6 @@ import numpy as np
 import yfinance as market
 import portfolio as port
 
-from datetime import datetime, timedelta
 from renderer import Renderer
 import pip
 

@@ -1,3 +1,4 @@
+import os
 import pytz
 import utils
 import plotille
@@ -114,6 +115,7 @@ class Portfolio(metaclass=utils.Singleton):
             sell_c += next_c
             sell_p += float(sell[1]) * next_c
 
+
         count = buy_c - sell_c
         if count == 0:
             return 0, 0
@@ -150,6 +152,8 @@ class Portfolio(metaclass=utils.Singleton):
 
         # iterate through each ticker data
         data_key = "Open"
+        if os.path.isfile("notify.txt"):
+            os.remove("notify.txt")
         for ticker in sections:
             # convert the numpy array into a list of prices while removing NaN values
             # if there is only one section, the data frame is not split into tickers
@@ -174,6 +178,13 @@ class Portfolio(metaclass=utils.Singleton):
                 if "sell" in list(stocks_config[ticker].keys())
                 else ()
             )
+            if "notify" in list(stocks_config[ticker].keys()):
+                notify_value = float(stocks_config[ticker]["notify"])
+                if notify_value > 0 and notify_value >= new_stock.curr_value:
+                    content = ticker + '@' + str(round(new_stock.curr_value,2)) + '\n'
+                    with open('notify.txt',mode='a') as noti_file:
+                        noti_file.write(content)
+            
             count, bought_at = self.average_buyin(buyin, sellout)
 
             # Check the stock color for graphing

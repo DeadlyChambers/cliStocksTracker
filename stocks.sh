@@ -16,6 +16,7 @@ fi
 if [ ! -z "$1" ]
     then
         python cliStocksTracker.py
+        python notify.py
     else
         python cliStocksTracker.py -ti 1h -tp 1mo
 fi
