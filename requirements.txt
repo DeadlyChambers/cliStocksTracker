@@ -6,4 +6,5 @@ dataclasses
 numpy
 plotille
 webcolors
+#win10toast if on windows
 colorama>=0.4.4
