@@ -38,7 +38,12 @@ stocks () {
     echo -e "${cyan}-------------------------------"
     echo -e "${yellow}Edit the ~/repos/cliStocksTracker/portfolio.ini to add/remove stocks${normal}";
     local cur=$PWD
-    cd ~/repos/cliStocksTracker    
+    cd ~/repos/cliStocksTracker
+    local hard_update=1
+    if [ ! -z "$1" ]
+        then
+            rm -rf ~/.venv/cli-stock
+    fi
     if [ ! -d ~/.venv/cli-stock ]
         then
             python -m pip install --user virtualenv
@@ -52,12 +57,7 @@ stocks () {
             [ ! -d $py_dir ] && py_dir=~/.venv/cli-stock/bin/activate
             source $py_dir
     fi
-    if [ ! -z "$1" ]
-        then
-            python cliStocksTracker.py
-        else
-            python cliStocksTracker.py -ti 1h -tp 1mo
-    fi
+    python cliStocksTracker.py
     deactivate
     cd $cur
 }
