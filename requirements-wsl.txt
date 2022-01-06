@@ -5,5 +5,4 @@ dataclasses
 numpy
 plotille
 webcolors
-win10toast
 colorama>=0.4.4
