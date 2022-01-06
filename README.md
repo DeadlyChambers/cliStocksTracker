@@ -28,7 +28,7 @@ Requirements:
 cp ./stocks.sh ~/etc/profile.d -fv
 ```
 
-### Mobile Setup
+## Mobile Setup
 ```
 pkg install git
 pkg install python
@@ -46,7 +46,19 @@ exit
 stocks
 # This will create the virtual environment, it appears to take quite a while
 # There are some failures too, but after it is finished running stocks works fine.
+# May need to delete virtual env and run, simply pass a parameter to the stocks command like so
+stocks anything
 ```
+### Mobile Issues
+When installing via termux, pandas and other libraries were not installing correctly. I installed these libs and then ran the `stocks force` which looked like
+
+```
+pkg install clang
+pkg install python-dev
+pip install numpy
+stocks force
+```
+
 
 ## Usage
 ```
