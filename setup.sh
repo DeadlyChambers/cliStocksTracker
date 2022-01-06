@@ -51,6 +51,7 @@ stocks () {
             py_dir=~/.venv/cli-stock/Scripts/activate
             [ ! -d $py_dir ] && py_dir=~/.venv/cli-stock/bin/activate
             source $py_dir
+            python -m pip install --upgrade pip
             python -m pip install -r requirements.txt
         else
             py_dir=~/.venv/cli-stock/Scripts/activate
