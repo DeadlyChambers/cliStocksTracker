@@ -28,13 +28,37 @@ Requirements:
 cp ./stocks.sh ~/etc/profile.d -fv
 ```
 
-### Manual Setup
+## Mobile Setup
 ```
-cd ~/usr/repos/cliStocksTracker
-python -m venv ~/.venv/cli-stock
-source ~/.venv/cli-stock/Scripts/activate
-python -m pip install -r requirements.txt
+pkg install git
+pkg install python
+mkdir ~/repos
+cd ~/repos
+git clone https://github.com/DeadlyChambers/cliStocksTracker
+cd cliStocksTracker
+git fetch
+git checkout feature/shane-updates
+git pull
+chmod +x setup.sh
+./setup.sh
+exit
+# After opening Termux again
+stocks
+# This will create the virtual environment, it appears to take quite a while
+# There are some failures too, but after it is finished running stocks works fine.
+# May need to delete virtual env and run, simply pass a parameter to the stocks command like so
+stocks anything
 ```
+### Mobile Issues
+When installing via termux, pandas and other libraries were not installing correctly. I installed these libs and then ran the `stocks force` which looked like
+
+```
+pkg install clang
+pkg install python-dev
+pip install numpy
+stocks force
+```
+
 
 ## Usage
 ```
