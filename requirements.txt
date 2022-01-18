@@ -1,7 +1,6 @@
 pytz
 yfinance
 pytest
-colorama
 dataclasses
 numpy
 plotille
